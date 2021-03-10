@@ -1,16 +1,21 @@
 import React from 'react'
-import styled from 'styled-components'
-    
-const StyledCell = styled.div`
-width: 80px;
-background-color: ${props => props.isEven === true ? "white" : "blue" };
-border: 1px solid black;
-`
 
-export default function Cell(props) {
+
+
+export default function Cell({x, y, isEven, children}) {
+
+    let evenStyle = {
+        background: 'white',
+        color: 'black'
+    }
+    let oddStyle = {
+        background: 'black',
+        color: 'white'
+    }
+
     return (
-        <StyledCell>
-            <p>{props.x}{props.y}</p>
-        </StyledCell>
+        <div style={isEven ? evenStyle : oddStyle }>
+            {children}
+        </div>
     )
 }
